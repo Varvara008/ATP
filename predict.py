@@ -14,7 +14,7 @@ def load_model(model_path: str, device="cpu"):
 
     return model
 
-model = load_model("defect_model.pth")
+#model = load_model("defect_model.pth")
 #print(model)
 
 def process_image(image_path):
@@ -28,8 +28,6 @@ def process_image(image_path):
     return val_transforms(image).unsqueeze(0)
 
 
-image = process_image("dataset/1.jpg")
-
 def predict(model, image_path, device="cpu"):
     image = process_image(image_path).to(device)
     with no_grad():
@@ -38,4 +36,3 @@ def predict(model, image_path, device="cpu"):
 
         return predicted.item()
 
-print(predict(model, "dataset/train/defect/20200707_085703 - Copy.jpg"))

@@ -1,4 +1,5 @@
 const dropZone = document.querySelector(".drop-zone");
+const result_text = document.querySelector(".result-text");
 
 ["dragenter", "dragover"].forEach(eventName => {
     dropZone.addEventListener(eventName, e => {
@@ -33,7 +34,11 @@ dropZone.addEventListener("drop", e => {
         reader.readAsDataURL(file);
         reader.onload = function () {
             let byteData = reader.result.split(",")[1];
-            eel.process_file(byteData, file.name)();
+            eel.process_file(byteData, file.name)().then(res=>{
+                result_text.textContent = (res == 0)?"отсутвует":"присутствует";
+                dropZone.querySelector("p").textContent = `Загружен файл:${file.name}. Ответ готов`;
+            })
+            
         }
 
     }
