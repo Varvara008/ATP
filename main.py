@@ -15,7 +15,5 @@ def process_file(file, file_name):
     return result
     
 
-
 if __name__ == "__main__":
     eel.start("index.html", size=(600, 600))
-
