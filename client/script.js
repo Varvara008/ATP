@@ -1,5 +1,7 @@
 const dropZone = document.querySelector(".drop-zone");
+const result = document.querySelector(".result");
 const result_text = document.querySelector(".result-text");
+const heatmap_img = document.querySelector(".heatmap-img");
 
 ["dragenter", "dragover"].forEach(eventName => {
     dropZone.addEventListener(eventName, e => {
@@ -37,6 +39,8 @@ dropZone.addEventListener("drop", e => {
             eel.process_file(byteData, file.name)().then(res=>{
                 result_text.textContent = (res.label == 0) ? "присутствует" : "отсутствует";
                 dropZone.querySelector("p").textContent = `Загружен файл:${file.name}. Ответ готов`;
+                heatmap_img.innerHTML = `<img src="http://localhost:8000/${res.heatmap}" />`;
+                result.classList.remove("hidden");
             })
             
         }

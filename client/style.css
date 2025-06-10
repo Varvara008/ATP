@@ -22,7 +22,7 @@ main{
     align-items: center;
 }
 
-.drop-zone{
+.drop-zone, .heatmap-img{
     width: 90%;
     height: 300px;
     border: 5px dotted #219ebc;
@@ -45,4 +45,23 @@ main{
 
 .drop-zone>p{
     font-size: 20px;
+}
+
+.result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heatmap-img{
+    height: auto !important;
+    padding: 15px;
+}
+
+.heatmap-img>img{
+    border-radius: 10px;
+}
+
+.hidden{
+    display: none;
 }

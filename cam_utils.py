@@ -42,5 +42,5 @@ def generate_heatmap(model, image_path, input_tensor=None, target_class=0):
     output_path = os.path.join("media", f"{name}_heatmap.png")
     cv2.imwrite(output_path, cv2.cvtColor(visualization, cv2.COLOR_RGB2BGR))
     print("[Grad-CAM] Сохранил heatmap:", output_path)
-
+    output_path = output_path.replace("\\", "/")
     return output_path
