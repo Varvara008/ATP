@@ -34,6 +34,7 @@ def predict(model, image_path, device="cpu"):
         output = model(image)
         _, predicted = torch.max(output, 1)
         label = predicted.item()
+        print("[predict] Предсказанный класс:", label)
 
     heatmap_path = None
     if label == 0: 

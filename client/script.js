@@ -35,7 +35,7 @@ dropZone.addEventListener("drop", e => {
         reader.onload = function () {
             let byteData = reader.result.split(",")[1];
             eel.process_file(byteData, file.name)().then(res=>{
-                result_text.textContent = (res == 1)?"отсутвует":"присутствует";
+                result_text.textContent = (res.label == 0) ? "присутствует" : "отсутствует";
                 dropZone.querySelector("p").textContent = `Загружен файл:${file.name}. Ответ готов`;
             })
             
